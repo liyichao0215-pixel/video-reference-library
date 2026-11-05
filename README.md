@@ -4,9 +4,9 @@
 
 ## 公开网页
 
-网站入口：[我的视频参考库](https://yichao-video-reference.liyichao0215.chatgpt.site/)
+网站入口：[我的视频参考库](https://liyichao0215-pixel.github.io/video-reference-library/)
 
-[中文](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=zh) · [日本語](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=ja) · [English](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=en) · [한국어](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=ko)
+[中文](https://liyichao0215-pixel.github.io/video-reference-library/?lang=zh) · [日本語](https://liyichao0215-pixel.github.io/video-reference-library/?lang=ja) · [English](https://liyichao0215-pixel.github.io/video-reference-library/?lang=en) · [한국어](https://liyichao0215-pixel.github.io/video-reference-library/?lang=ko)
 
 公开网页无需登录，可将网页入口放入 Flova 供访客打开；仓库用于保存源码、参考数据和维护历史。
 
@@ -44,10 +44,11 @@
 
 本仓库保存完整网站源码、550 条参考数据、四种语言界面及日/韩标题译文，可独立下载后使用。`dist/` 是完整静态网站目录，无需构建或安装依赖。
 
-GitHub 仓库用于保存和版本管理，公开网页通过 Sites 托管。网站没有登录、支付、生成模型接口或后台数据库。视频与封面仍引用源站外链，仓库不包含原始视频文件；原站链接失效时应通过保存的 X 来源追溯。
+GitHub 仓库用于保存和版本管理，公开网页通过 GitHub Pages 托管。网站没有登录、支付、生成模型接口或后台数据库。视频与封面仍引用源站外链，仓库不包含原始视频文件；原站链接失效时应通过保存的 X 来源追溯。
 
 ## 后续维护
 
+- 将更新推送到 `main` 后，GitHub Actions 会先运行验证，再将 `dist/` 自动发布到 GitHub Pages；也可在 Actions 中手动运行 `Deploy GitHub Pages`。
 - 界面翻译：编辑 `dist/i18n.js`；四种语言的文案键应保持一致。
 - 视频标题：中英文来自 `dist/data/catalog.json`，日/韩标题位于 `dist/data/titles.json`，使用原始 `slug` 关联。
 - 新增案例：按相同记录结构补充到目录，使用所属分类当前最大编号的下一号；同步分类数量，并添加日/韩标题。不要对已有案例重新编号。
