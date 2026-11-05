@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="按类别和编号浏览视频参考，查看完整提示词并追溯 X 原作者。">
+  <meta name="theme-color" content="#111214">
+  <title>我的视频参考库</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">跳到视频参考</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="我的视频参考库首页" data-i18n-aria-label="home">
+      <span class="brand-mark" aria-hidden="true">▥</span>
+      <span><strong data-i18n="siteName">我的视频参考库</strong><span class="brand-caption">VIDEO REFERENCE LIBRARY</span></span>
+    </a>
+    <div class="header-tools">
+      <span class="header-note"><span class="status-dot"></span><span data-i18n="tagline">创作，从一个参考开始</span></span>
+      <label class="language-control"><span class="sr-only" data-i18n="language">选择语言</span><select id="language" aria-label="选择语言" data-i18n-aria-label="language"><option value="zh" lang="zh-CN">中文</option><option value="ja" lang="ja">日本語</option><option value="en" lang="en">English</option><option value="ko" lang="ko">한국어</option></select></label>
+    </div>
+  </header>
+  <div class="workspace">
+    <aside class="sidebar" aria-label="视频分类" data-i18n-aria-label="categorySidebar">
+      <div class="sidebar-label"><span data-i18n="categoryIndex">类别索引</span><span id="category-total">—</span></div>
+      <nav id="categories" aria-label="按类别筛选" data-i18n-aria-label="categoryNav"></nav>
+      <div class="index-note"><span class="sample-code">A001</span><p data-i18n="codeExplanation">字母代表分类<br>数字对应固定案例</p></div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <div class="page-heading">
+        <div><p class="eyebrow" data-i18n="eyebrow">视频参考索引</p><h1 id="heading">全部参考<span class="heading-dot">.</span></h1><p id="summary" class="summary">正在读取参考库…</p></div>
+        <div class="snapshot"><span data-i18n="snapshot">本次收录</span><time id="snapshot-date">—</time></div>
+      </div>
+      <div class="toolbar">
+        <label class="search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="search" type="search" placeholder="搜索编号、标题、作者或提示词" aria-label="搜索编号、标题、作者或提示词" data-i18n-placeholder="search" data-i18n-aria-label="search" autocomplete="off"><kbd aria-hidden="true">⌕</kbd></label>
+        <span id="result-count" class="result-count" role="status" aria-live="polite"></span>
+      </div>
+      <p id="message" class="message" role="status">正在加载视频参考…</p>
+      <div id="grid" class="reference-grid" aria-label="视频参考列表" data-i18n-aria-label="grid"></div>
+      <button id="more" class="more-button" type="button" hidden>加载更多参考 <span aria-hidden="true">↓</span></button>
+      <footer class="site-footer">
+        <p><span data-i18n="rights">视频与提示词归原作者所有。数据整理：</span><a href="https://github.com/BeatAPI/awesome-minimax-h3-prompts" target="_blank" rel="noopener noreferrer">BeatAPI Prompt Gallery ↗</a></p>
+        <p data-i18n="footerNote">保留原始分类与提示词 · 视频使用源站链接</p>
+        <p data-i18n="translationNote">日、韩标题为机器翻译。</p>
+      </footer>
+    </main>
+  </div>
+  <dialog id="detail" aria-labelledby="detail-title">
+    <div class="detail-shell">
+      <button id="close-detail" class="close-button" type="button" aria-label="关闭详情" data-i18n-aria-label="close">×</button>
+      <section class="detail-media">
+        <div class="detail-topline"><span id="detail-code" class="code-badge"></span><span id="detail-category"></span></div>
+        <div class="video-frame"><video id="player" controls playsinline preload="metadata" aria-label="视频参考" data-i18n-aria-label="video"></video><p id="video-error" data-i18n="videoError" hidden>视频暂时无法加载，请前往下方 X 原帖观看。</p></div>
+        <h2 id="detail-title"></h2>
+        <p id="detail-meta" class="detail-meta"></p>
+        <a id="detail-source" class="source-button" target="_blank" rel="noopener noreferrer">查看 X 原帖 <span aria-hidden="true">↗</span></a>
+      </section>
+      <section class="detail-prompt" aria-labelledby="prompt-heading">
+        <div class="prompt-header"><h3 id="prompt-heading" data-i18n="promptHeading">完整提示词</h3><button id="copy-prompt" class="accent-button" type="button" data-i18n="copyPrompt">复制提示词</button></div>
+        <p class="prompt-note" data-i18n="promptNote">保留原文，便于直接复用。</p>
+        <div id="prompt-body" class="prompt-body" tabindex="0"></div>
+        <div id="prompt-sources" class="prompt-sources"></div>
+      </section>
+    </div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <template id="card-template">
+    <article class="reference-card">
+      <button class="preview" type="button">
+        <img loading="lazy" decoding="async" alt="">
+        <span class="image-fallback" hidden>暂无预览图</span>
+        <span class="code-badge"></span><span class="play-badge" aria-hidden="true">▶</span><span class="duration"></span>
+      </button>
+      <div class="card-content"><div class="card-kicker"><span class="category-name"></span><span class="ratio"></span></div><h2><button class="title-button" type="button"></button></h2><a class="author" target="_blank" rel="noopener noreferrer"></a><div class="card-actions"><button class="view-prompt" type="button">查看提示词 <span aria-hidden="true">↗</span></button><button class="copy-card" type="button">复制</button></div></div>
+    </article>
+  </template>
+</body>
+</html>

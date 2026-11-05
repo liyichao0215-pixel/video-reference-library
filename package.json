@@ -1,0 +1,9 @@
+{
+  "name": "personal-video-reference-library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/catalog.test.mjs",
+    "start": "python3 -m http.server 4317 --bind 127.0.0.1 --directory dist"
+  }
+}
