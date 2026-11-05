@@ -2,6 +2,14 @@
 
 一个无需安装依赖的静态网站，收录 2026-11-05 获取的 550 条 MiniMax H3 视频案例。
 
+## 公开网页
+
+网站入口：[我的视频参考库](https://yichao-video-reference.liyichao0215.chatgpt.site/)
+
+[中文](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=zh) · [日本語](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=ja) · [English](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=en) · [한국어](https://yichao-video-reference.liyichao0215.chatgpt.site/?lang=ko)
+
+公开网页无需登录，可将网页入口放入 Flova 供访客打开；仓库用于保存源码、参考数据和维护历史。
+
 ## 本地打开
 
 在本目录运行 `python3 -m http.server 4317 --bind 127.0.0.1 --directory dist`，浏览器访问 http://127.0.0.1:4317 。请通过 HTTP 服务打开，直接双击 HTML 无法读取数据文件。
@@ -36,7 +44,7 @@
 
 本仓库保存完整网站源码、550 条参考数据、四种语言界面及日/韩标题译文，可独立下载后使用。`dist/` 是完整静态网站目录，无需构建或安装依赖。
 
-GitHub 仓库用于保存和版本管理，网站尚未部署到公网。网站没有登录、支付、生成模型接口或后台数据库。视频与封面仍引用源站外链，仓库不包含原始视频文件；原站链接失效时应通过保存的 X 来源追溯。
+GitHub 仓库用于保存和版本管理，公开网页通过 Sites 托管。网站没有登录、支付、生成模型接口或后台数据库。视频与封面仍引用源站外链，仓库不包含原始视频文件；原站链接失效时应通过保存的 X 来源追溯。
 
 ## 后续维护
 
