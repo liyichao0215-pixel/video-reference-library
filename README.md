@@ -4,9 +4,9 @@
 
 ## 公开网页
 
-网站入口：[我的视频参考库](https://liyichao0215-pixel.github.io/video-reference-library/)
+网站入口：[我的视频参考库](https://liyichao0215-pixel.github.io/minimax-h3-prompts/)
 
-[中文](https://liyichao0215-pixel.github.io/video-reference-library/?lang=zh) · [日本語](https://liyichao0215-pixel.github.io/video-reference-library/?lang=ja) · [English](https://liyichao0215-pixel.github.io/video-reference-library/?lang=en) · [한국어](https://liyichao0215-pixel.github.io/video-reference-library/?lang=ko)
+[中文](https://liyichao0215-pixel.github.io/minimax-h3-prompts/?lang=zh) · [日本語](https://liyichao0215-pixel.github.io/minimax-h3-prompts/?lang=ja) · [English](https://liyichao0215-pixel.github.io/minimax-h3-prompts/?lang=en) · [한국어](https://liyichao0215-pixel.github.io/minimax-h3-prompts/?lang=ko)
 
 公开网页无需登录，可将网页入口放入 Flova 供访客打开；仓库用于保存源码、参考数据和维护历史。
 
